@@ -1,0 +1,54 @@
+﻿@model Project_DATN.Services.Models.LoaiPhongRequest
+@addTagHelper *,Microsoft.AspNetCore.Mvc.TagHelpers
+@{ ViewData["Title"] = "Create";
+                Layout = "~/Views/Shared/_Layout.cshtml"; }
+
+<div class="card shadow-lg border-0 rounded-lg mt-5">
+    <div class="card-header"><h3 class="text-center font-weight-light my-4">Loại Phòng</h3></div>
+    <div class="card-body">
+        <form asp-action="CreateLoaiPhong" asp-controller="LoaiPhong" method="post">
+            <div class="form-group">
+                <label class="small mb-1" for="inputEmailAddress">Tên loại phòng</label>
+                <input asp-for="tenLoaiPhong" class="form-control py-4" id="inputEmailAddress" type="text" />
+                <span asp-validation-for="tenLoaiPhong" class="form-control py-4"></span>
+            </div>
+
+            <div class="form-group">
+                <label class="small mb-1" for="inputPassword">Đơn giá theo giờ</label>
+                <input asp-for="donGiaTheoGio" class="form-control py-4" id="inputPassword" type="text" />
+                <span asp-validation-for="donGiaTheoGio" class="form-control py-4"></span>
+            </div>
+
+            <div class="form-group">
+                <label class="small mb-1" for="inputPassword">Đơn giá theo ngày</label>
+                <input asp-for="donGiaTheoNgay" class="form-control py-4" id="inputPassword" type="text" />
+                <span asp-validation-for="donGiaTheoNgay" class="form-control py-4"></span>
+            </div>
+
+            <div class="form-group">
+                <label class="small mb-1" for="inputPassword">Đơn giá qua đêm</label>
+                <input asp-for="donGiaQuaDem" class="form-control py-4" id="inputPassword" type="text" />
+                <span asp-validation-for="donGiaQuaDem" class="form-control py-4"></span>
+            </div>
+
+            <div class="form-group">
+                <label class="small mb-1" for="inputPassword">Số người</label>
+                <input asp-for="soNguoi" class="form-control py-4" id="inputPassword" type="text" />
+                <span asp-validation-for="soNguoi" class="form-control py-4"></span>
+            </div>
+
+            <div class="form-group">
+                <label class="small mb-1" for="inputPassword">Ghi chú</label>
+                <input asp-for="ghiChu" class="form-control py-4" id="inputPassword" type="text" />
+                <span asp-validation-for="ghiChu" class="form-control py-4"></span>
+            </div>
+
+            <div class="form-group d-flex align-items-center justify-content-between mt-4 mb-0">
+                <input class="btn btn-primary" type="submit" value="Xác nhận" />
+            </div>
+            <div>
+                <a asp-action="Index">Back to List</a>
+            </div>
+        </form>
+    </div>
+</div>

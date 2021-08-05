@@ -1,0 +1,110 @@
+﻿@model Project_DATN.Data.EF.Entities.TaiKhoan
+
+@{
+    ViewData["Title"] = "Xóa tài khoản";
+}
+
+<h1 class="text-primary display-6">Xóa tài khoản</h1>
+
+<h3 class="text-danger">Bạn có chắc muốn xóa tài khoản này?</h3>
+<div>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.CoSo)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.CoSo.tenCoSo)
+        </dd >
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.PhongBan)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.PhongBan.tenPhongBan)
+        </dd >
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.tenTaiKhoan)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.tenTaiKhoan)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.matKhau)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.matKhau)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.hoTenChuTK)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.hoTenChuTK)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.email)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.email)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.ngayThangNamSinh)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.ngayThangNamSinh)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.gioiTinh)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.gioiTinh)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.soDienThoai)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.soDienThoai)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.CCCD)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.CCCD)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.diaChi)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.diaChi)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.ngayVaoLam)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.ngayVaoLam)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.ngayKetThucHopDong)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.ngayKetThucHopDong)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.TrangThai)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.TrangThai)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.anhDaiDien)
+        </dt>
+        <dd class = "col-sm-10">
+            <img src="@("/images/" + Model.anhDaiDien)" alt="Avatar" width="75" height="75" />
+        </dd>
+       </dl>
+    
+    <form asp-action="DeleteTk">
+        <input type="hidden" asp-for="ID" />
+        <input type="submit" value="Delete" class="btn btn-danger" /> |
+        <a asp-action="Index">Back to List</a>
+    </form>
+</div>

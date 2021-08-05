@@ -1,0 +1,87 @@
+﻿@model Project_DATN.Data.EF.Entities.HoaDon
+
+@{
+    ViewData["Title"] = "CheckOut";
+    Layout = "~/Shared/_Layout.cshtml";
+}
+
+<h1>CheckOut</h1>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="CheckOut">
+            <input type="hidden" asp-for="ID" />
+            <div class="form-group disabled">
+                <label asp-for="maHoaDon" class="control-label">Mã Hoá Đơn</label>
+                <input asp-for="maHoaDon" class="form-control" />
+                <span asp-validation-for="maHoaDon" class="text-danger"></span>
+            </div>
+            <div class="form-group disabled">
+                <label asp-for="thoiGianThue" class="control-label">Thời Gian Thuê</label>
+                <input asp-for="thoiGianThue" class="form-control" />
+                <span asp-validation-for="thoiGianThue" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="tienKhachDua" class="control-label">Tiền Khách Đưa</label>
+                <input asp-for="tienKhachDua" class="form-control" />
+                <span asp-validation-for="tienKhachDua" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="tienTraLai" class="control-label">Trả Lại</label>
+                <input asp-for="tienTraLai" class="form-control" />
+                <span asp-validation-for="tienTraLai" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="giamTru" class="control-label">Giảm Trừ</label>
+                <input asp-for="giamTru" class="form-control" />
+                <span asp-validation-for="giamTru" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="cocTien" class="control-label"></label>
+                <input asp-for="cocTien" class="form-control" />
+                <span asp-validation-for="cocTien" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="phuThu" class="control-label">Phụ Thu</label>
+                <input asp-for="phuThu" class="form-control" />
+                <span asp-validation-for="phuThu" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="thueVAT" class="control-label">VAT</label>
+                <input asp-for="thueVAT" class="form-control" />
+                <span asp-validation-for="thueVAT" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="chietKhau" class="control-label">Chiết Khấu</label>
+                <input asp-for="chietKhau" class="form-control" />
+                <span asp-validation-for="chietKhau" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="giamGia" class="control-label">Giảm Giá</label>
+                <input asp-for="giamGia" class="form-control" />
+                <span asp-validation-for="giamGia" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="fields1" class="control-label">Gía Phòng</label>
+                <input asp-for="fields1" class="form-control" />
+                <span asp-validation-for="fields1" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ghiChu" class="control-label">Ghi Chú</label>
+                <input asp-for="ghiChu" class="form-control" />
+                <span asp-validation-for="ghiChu" class="text-danger"></span>
+            </div>
+            <input type="hidden" asp-for="ID_Phong" />
+            <input type="hidden" asp-for="Phong.trangThai" />
+            <input type="hidden" asp-for="ngayGioTraPhong" />
+            <input type="hidden" asp-for="thoiGianThue" />
+            <div class="form-group">
+                <input type="submit" asp-for="ID_Phong" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+

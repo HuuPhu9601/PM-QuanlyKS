@@ -1,0 +1,38 @@
+﻿@model Project_DATN.Data.EF.Entities.QuyenHan
+
+@{
+    ViewData["Title"] = "Xóa quyền hạn";
+}
+
+<h1 class="text-primary text-center display-6">Xóa quyền hạn</h1>
+
+<h3 class="text-danger text-center">Bạn có chắc muốn xóa quyền hạn này không</h3>
+<div>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.tenQuyenHan)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.tenQuyenHan)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.moTa)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.moTa)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.trangThai)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.trangThai)
+        </dd>
+    </dl>
+    
+    <form asp-action="DeleteQh">
+        <input type="hidden" asp-for="ID" />
+        <input type="submit" value="Xóa" class="btn btn-danger" /> |
+        <a asp-action="Index">Back to List</a>
+    </form>
+</div>

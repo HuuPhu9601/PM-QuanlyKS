@@ -1,0 +1,100 @@
+﻿@addTagHelper *,Microsoft.AspNetCore.Mvc.TagHelpers
+@model List<Project_DATN.Services.Models.LoaiPhongRequest>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<main>
+    <div class="container-fluid">
+        <h1 class="mt-4">Loại Phòng</h1>
+        <ol class="breadcrumb mb-4">
+            <li class="breadcrumb-item"><a href="index.html">Dashboard</a></li>
+            <li class="breadcrumb-item active">Danh Sách</li>
+        </ol>
+        <div class="card-header">
+            <form asp-action="CreateLoaiPhong" asp-controller="LoaiPhong" method="get">
+                <input class="btn btn-primary" type="submit" value="Thêm" />
+            </form>
+        </div>
+        <div class="card-header">
+            <form class="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-3 my-2 my-md-0" asp-action="Index" asp-controller="LoaiPhong" asp-rou method="get">
+                <div class="input-group">
+                    <input class="form-control" type="text" placeholder="Search for..." name="search" aria-label="Search" aria-describedby="basic-addon2" />
+                    <div class="input-group-append">
+                        <button class="btn btn-primary" type="submit"><i class="fas fa-search"></i></button>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="card mb-4">
+            <div class="card-header">
+                <i class="fas fa-table mr-1"></i>
+                Danh sách Loại Phòng
+            </div>
+
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                        <thead>
+                            <tr>
+                                <th>Tên loại phòng</th>
+                                <th>Đơn giá theo giờ</th>
+                                <th>Đơn giá theo ngày</th>
+                                <th>Đơn giá qua đêm</th>
+                                <th>Số người</th>
+                                <th>Ghi chú</th>
+                            </tr>
+                        </thead>
+                        <tfoot>
+                            <tr>
+                                <th>Tên loại phòng</th>
+                                <th>Đơn giá theo giờ</th>
+                                <th>Đơn giá theo ngày</th>
+                                <th>Đơn giá qua đêm</th>
+                                <th>Số người</th>
+                                <th>Ghi chú</th>
+                            </tr>
+                        </tfoot>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td>@item.tenLoaiPhong</td>
+                                    <td>@item.donGiaTheoGio</td>
+                                    <td>@item.donGiaTheoNgay</td>
+                                    <td>@item.donGiaQuaDem</td>
+                                    <td>@item.soNguoi</td>
+                                    <td>@item.ghiChu</td>
+                                    <td>
+                                        <form asp-action="UpdateLoaiPhong" asp-controller="LoaiPhong" asp-route-id="@item.Id" method="get">
+                                            <input type="submit" class="btn btn-success" value="Sửa" />
+                                        </form>
+                                        <form asp-action="DeleteLoaiPhong" asp-controller="LoaiPhong" asp-route-id="@item.Id" method="get">
+                                            <input type="submit" class="btn btn-danger" value="Xóa" />
+                                        </form>
+                                        <form asp-action="CreateQRcode" asp-controller="LoaiPhong" asp-route-id="@item.Id" method="get">
+                                            <input type="submit" class="btn btn-danger" value="Tạo QRCode" />
+                                        </form>
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+<footer class="py-4 bg-light mt-auto">
+    <div class="container-fluid">
+        <div class="d-flex align-items-center justify-content-between small">
+            <div class="text-muted">Copyright &copy; Your Website 2020</div>
+            <div>
+                <a href="#">Privacy Policy</a>
+                &middot;
+                <a href="#">Terms &amp; Conditions</a>
+            </div>
+        </div>
+    </div>
+</footer>
+

@@ -1,0 +1,114 @@
+﻿@model IEnumerable<Project_DATN.Data.EF.Entities.DichVu>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Table 03</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+
+    <link href="~/css/StyleLong1.css" rel="stylesheet" />
+    <link href="~/css/StyleLong2.css" rel="stylesheet" />
+    <link href="~/css/StyleTaiKhoan.css" rel="stylesheet" />
+
+</head>
+<body>
+    <section class="ftco-section">
+        <div class="container">
+
+            <div class="row">
+                <div class="col-md-12">
+                    <h4 class="text-center mb-4">Danh sách dịch vụ</h4>
+                    <p>
+                        <a asp-action="Create" class="btn btn-primary">Thêm loại dịch vụ mới</a>
+                    </p>
+                    <br />
+                    <div class="table-wrap">
+                        <table class="table">
+                            <thead class="thead-primary">
+
+                                <tr>
+                                    <th>
+                                        Tên dịch vụ
+                                    </th>
+                                    <th>
+                                        Đơn vị tính
+                                    </th>
+                                    <th>
+                                        Đơn giá
+                                    </th>
+                                    <th>
+                                        Đơn vị tiền
+                                    </th>
+                                    <th>
+                                        Mô tả
+                                    </th>
+                                    <th>
+                                        Trạng thái
+                                    </th>
+                                    <th>
+                                        Hành động
+                                    </th>
+
+
+
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in Model)
+                                {
+                                    <tr>
+                                        <td>
+                                            @item.tenDichVu
+                                        </td>
+                                        <td>
+                                            @item.donViTinh
+                                        </td>
+                                        <td cssClass="ClsTxtToCalculate">
+                                            @item.donGia
+                                        </td>
+                                        <td cssClass="ClsTxtToCalculate">
+                                            @item.donViTien
+                                        </td>
+                                        <td>
+                                            @item.moTa
+                                        </td>
+                                        <td>
+                                            @item.trangThai
+                                        </td>
+
+
+                                        <td>
+                                            <div class="btn-group" role="group">
+                                                <a asp-action="Edit" asp-route-id="@item.ID" class="btn btn-sm btn-outline-primary">Sửa</a>
+                                                <a asp-action="Delete" asp-route-id="@item.ID" class="btn btn-sm btn-outline-danger">Xóa</a>
+                                            </div>
+                                        </td>
+
+
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                        <form method="post" asp-controller="DichVu" asp-action="Export">
+                            <input type="submit" value="Export" />
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="js/jquery.min.js"></script>
+    <script src="js/popper.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/main.js"></script>
+
+</body>
+</html>

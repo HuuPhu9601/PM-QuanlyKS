@@ -1,0 +1,25 @@
+﻿@using Project_DATN.Data.EF.Entities.Enums
+@model Project_DATN.Data.EF.Entities.TaiKhoan
+
+@{
+    ViewData["Title"] = "Thêm tài khoản mới";
+}
+<link href="~/css/StyleTaiKhoan.css" rel="stylesheet" />
+<h1 class="text-primary text-center display-6">Thêm tài khoản mới</h1>
+
+<hr />
+<form asp-action="Create" enctype="multipart/form-data" id="#regForm">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <partial name="_PartialTaiKhoan" model="Model"/>
+    <span>
+        @Html.Raw(TempData["Error"])
+    </span>
+    <div class="form-group mt-3">
+        <input type="submit" value="Thêm" class="btn btn-primary" />
+    </div>
+</form>
+
+<div>
+    <a asp-action="Index">Trở lại danh sách</a>
+</div>
+

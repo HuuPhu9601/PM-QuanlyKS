@@ -1,0 +1,43 @@
+﻿@model IEnumerable<Project_DATN.Data.EF.Entities.GiaoDich>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Shared/_LayoutDashboard.cshtml";
+}
+
+<h1>Danh sách loại hình giao dịch</h1>
+
+<p>
+    <a asp-action="AddGiaoDich">Tạo Mới</a>
+</p>
+<table class="table table-bordered">
+    <thead class="thead-dark">
+        <tr>
+            <th>Hình Thức Thanh Toán</th>
+            <th>Ngày Tạo</th>
+            <th>Trạng Thái</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.loaiHinhThucThanhToan)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ngayGioThanhToan)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.trangThai)
+                </td>
+
+                <td>
+                    <a type="button" class="btn btn-info" asp-action="EditGiaoDich" asp-route-id="@item.ID">Edit</a>
+                    <a type="button" class="btn btn-danger" asp-action="Delete" asp-route-id="@item.ID">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

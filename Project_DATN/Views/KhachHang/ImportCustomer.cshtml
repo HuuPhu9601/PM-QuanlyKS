@@ -1,0 +1,13 @@
+﻿
+@{
+    ViewData["Title"] = "ImportCustomer";
+    Layout = "~/Shared/_Layout.cshtml";
+}
+
+<div class="container">
+    <form asp-action="ImportCustomers" asp-controller="KhachHang" method="post" enctype="multipart/form-data">
+        <input type="file" name="file" />
+        <button type="submit">Import Customers From Excel</button>
+    </form>
+</div>
+

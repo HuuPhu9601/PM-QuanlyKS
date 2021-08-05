@@ -1,0 +1,98 @@
+﻿<div class="sidebar close">
+    <div class="logo-details">
+        <i class='bx bx-menu icon'></i>
+        <span class="logo_name">UltraPrime Hotel</span>
+    </div>
+    <ul class="nav-links">
+        <li>
+            <a asp-action="Index" asp-controller="Home">
+                <i class='bx bx-home-alt'></i>
+                <span class="link_name">Trang chủ</span>
+            </a>
+            <ul class="sub-menu blank">
+                <li><a class="link_name" href="#">Trang chủ</a></li>
+            </ul>
+        </li>
+        <li>
+            <div class="icon-link">
+                <a href="#">
+                    <i class='bx bx-briefcase'></i>
+                    <span class="link_name">Quản lý</span>
+                </a>
+                <i class='bx bxs-chevron-down arrow'></i>
+            </div>
+            <ul class="sub-menu ">
+                <li><a class="link_name" href="#">Quản lý</a></li>
+                <li><a asp-action="Index" asp-controller="TaiKhoan">Tài khoản</a></li>
+                <li><a asp-action="Index" asp-controller="ChucVu">Chức vụ</a></li>
+                <li><a asp-action="Index" asp-controller="QuyenHan">Quyền hạn</a></li>
+                <li><a asp-action="Index" asp-controller="KhachHang">Khách hàng</a></li>
+                <li><a asp-action="Index" asp-controller="TaiKhoanNganHang">Tài khoản ngân hàng</a></li>
+            </ul>
+        </li>
+        <li>
+            <div class="icon-link">
+                <a href="#">
+                    <i class='bx bx-bed'></i>
+                    <span class="link_name">Phòng / cơ sở</span>
+                </a>
+                <i class='bx bxs-chevron-down arrow'></i>
+            </div>
+            <ul class="sub-menu ">
+                <li><a class="link_name" href="#">Phòng / cơ sở</a></li>
+                <li><a asp-action="CreateCoso" asp-controller="AutoRender">Tạo cơ sở tự động</a></li>
+                <li><a asp-action="Index" asp-controller="CoSo">Cơ sở</a></li>
+                <li><a asp-action="Index" asp-controller="Phong">Phòng </a></li>
+                <li><a asp-action="Index" asp-controller="LoaiPhong">Loại phòng </a></li>
+                <li><a asp-action="Index" asp-controller="Lau">Lầu</a></li>
+            </ul>
+        </li>
+        <li>
+            <div class="icon-link">
+                <a href="#">
+                    <i class='bx bxs-drink'></i>
+                    <span class="link_name">Dịch vụ</span>
+                </a>
+                <i class='bx bxs-chevron-down arrow'></i>
+            </div>
+            <ul class="sub-menu ">
+                <li><a class="link_name" href="#">Dịch vụ</a></li>
+                <li><a asp-action="Index" asp-controller="DichVu">Dịch vụ</a></li>
+                <li><a asp-action="Index" asp-controller="LoaiDichVu">Loại dịch vụ </a></li>
+            </ul>
+        </li>
+        <li>
+            <div class="icon-link">
+                <a href="#">
+                    <i class='bx bx-receipt'></i>
+                    <span class="link_name">Hóa đơn</span>
+                </a>
+                <i class='bx bxs-chevron-down arrow'></i>
+            </div>
+            <ul class="sub-menu ">
+                <li><a class="link_name" href="#">Hóa đơn</a></li>
+                <li><a asp-action="Index" asp-controller="HoaDon">Hóa đơn</a></li>
+                <li><a asp-action="Index" asp-controller="ChiTietHoaDon">Chi tiết hóa đơn </a></li>
+                <li><a asp-action="Index" asp-controller="GiaoDich">Giao dịch </a></li>
+            </ul>
+        </li>
+        <li>
+            <a asp-action="Index" asp-controller="BookingRoom">
+                <i class='bx bxs-user-check'></i>
+                <span class="link_name">Booking Room</span>
+            </a>
+            <ul class="sub-menu blank">
+                <li><a class="link_name" href="#">Booking Room</a></li>
+            </ul>
+        </li>
+        <li>
+            <a asp-action="TaoCaLam" asp-controller="GiaoCa">
+                <i class='bx bx-grid-alt'></i>
+                <span class="link_name">Giao ca</span>
+            </a>
+            <ul class="sub-menu blank">
+                <li><a class="link_name" href="#">Giao ca</a></li>
+            </ul>
+        </li>
+    </ul>
+</div>

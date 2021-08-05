@@ -1,0 +1,70 @@
+﻿@model Project_DATN.Data.EF.Entities.KhachHang
+
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Shared/_LayoutDashboard.cshtml";
+}
+
+<h1>Edit</h1>
+
+<h4>KhachHang</h4>
+<hr />
+<div class="border-1 row justify-content-center align-items-center">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="ID" />
+            <div class="form-group">
+                <label asp-for="maKH" class="control-label">Mã Khách Hàng</label>
+                <input asp-for="maKH" class="form-control" />
+                <span asp-validation-for="maKH" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="hoTenKH" class="control-label">Họ Và Tên</label>
+                <input asp-for="hoTenKH" class="form-control" />
+                <span asp-validation-for="hoTenKH" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="email" class="control-label">Email</label>
+                <input asp-for="email" class="form-control" />
+                <span asp-validation-for="email" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="gioiTinh" class="control-label">Giới Tính</label>
+                <input asp-for="gioiTinh" class="form-control" />
+                <span asp-validation-for="gioiTinh" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="soDienThoai" class="control-label">SĐT</label>
+                <input asp-for="soDienThoai" class="form-control" />
+                <span asp-validation-for="soDienThoai" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CCCD" class="control-label">CMND/CCCD</label>
+                <input asp-for="CCCD" class="form-control" />
+                <span asp-validation-for="CCCD" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="diaChi" class="control-label">Địa Chỉ</label>
+                <input asp-for="diaChi" class="form-control" />
+                <span asp-validation-for="diaChi" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="quocTich" class="control-label">Quốc Tịch</label>
+                <input asp-for="quocTich" class="form-control" />
+                <span asp-validation-for="quocTich" class="text-danger"></span>
+            </div>
+            <div class="form-group justify-content-center ">
+                <input type="submit" value="Save" class="btn btn-primary align-items-center" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

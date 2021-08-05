@@ -1,0 +1,66 @@
+﻿@model Project_DATN.Data.EF.Entities.LoaiDichVu
+
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<link href="~/css/StyleLong2.css" rel="stylesheet" />
+
+
+
+<div class="wrapper wrapper--w680">
+    <div class="card card-4">
+        <div class="card-body">
+            <h2 class="title">Cập nhập loại dịch vụ</h2>
+            <form method="post">
+                <div class="row row-space">
+
+                    <div class="form-group">
+                        <label asp-for="tenLoaiDichVu" class="control-label"></label>
+                        <input asp-for="tenLoaiDichVu" class="form-control" />
+                        <span asp-validation-for="tenLoaiDichVu" class="text-danger"></span>
+                    </div>
+
+
+
+                    <div class="form-group">
+                        <label asp-for="moTa" class="control-label"></label>
+                        <input asp-for="moTa" class="form-control" />
+                        <span asp-validation-for="moTa" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label>Trạng thái</label>
+                        <select asp-for="trangThai" class="form-control">
+                            <option class="form-control">
+                                Hoạt động
+                            </option>
+                            <option class="form-control">
+                                Không hoạt động
+                            </option>
+                        </select>
+
+                    </div>
+                    </div>
+
+
+
+
+
+
+                    <div class="p-t-15">
+
+                        <input class="btn btn--radius-2 btn--blue" type="submit" value="Lưu" />
+                    </div>
+
+</form>
+        </div>
+    </div>
+</div>
+
+
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

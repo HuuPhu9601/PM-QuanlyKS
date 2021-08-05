@@ -1,0 +1,115 @@
+﻿@addTagHelper *,Microsoft.AspNetCore.Mvc.TagHelpers
+@model Project_DATN.Services.Models.CosoRequest
+
+  
+    <!-- LINEARICONS -->
+    <link rel="stylesheet" href="~/AutoRenderroot/fonts/linearicons/style.css">
+
+    <!-- MATERIAL DESIGN ICONIC FONT -->
+    <link rel="stylesheet" href="~/AutoRenderroot/fonts/material-design-iconic-font/css/material-design-iconic-font.css">
+
+    <!-- DATE-PICKER -->
+    <link rel="stylesheet" href="~/AutoRenderroot/vendor/date-picker/css/datepicker.min.css">
+
+    <!-- STYLE CSS -->
+    <link rel="stylesheet" href="~/AutoRenderroot/css/style.css">
+    <div class="wrapper">
+        <div class="inner">
+            <div class="image-holder">
+                <img src="~/AutoRenderroot/images/form-wizard.jpg" alt="">
+                <h3>Tạo Cơ Sở</h3>
+            </div>
+            <form asp-action="CreateCoso" method="post">
+                <div id="wizard">
+                    <!-- SECTION 1 -->
+                    <h4>Tạo cơ sở</h4>
+                    <section>
+                        <div class="form-row">
+                            <div class="form-holder">
+                                <input type="text" asp-for="tenCoSo" style="color: #ff0000" class="form-control" placeholder="Tên cơ sở :">
+                                <span asp-validation-for="tenCoSo" class="text-danger"></span>
+                            </div>
+                            <div class="form-holder">
+                                <input type="text" asp-for="hoTenNguoiDaiDien" style="color: #ff0000" class="form-control" placeholder="Chủ sở hữu :">
+                                <span asp-validation-for="hoTenNguoiDaiDien" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-holder">
+                                <input type="text" asp-for="maSoThue" style="color: #ff0000" class="form-control" placeholder="Mã số thuế :">
+                                <span asp-validation-for="maSoThue" class="text-danger"></span>
+                            </div>
+                            <div class="form-holder">
+                                <input type="text" asp-for="soDienThoai" style="color: #ff0000" class="form-control" placeholder="Số điện thoại :">
+                                <span asp-validation-for="soDienThoai" class="text-danger"></span>
+                            </div> 
+                        </div>
+                        <div class="form-row">
+                            <div class="form-holder">
+                                <input type="text" asp-for="email" style="color: #ff0000" class="form-control" placeholder="Email :">
+                                <span asp-validation-for="email" class="text-danger"></span>
+                            </div>
+                            <div class="form-holder">
+                                <input type="text" asp-for="ghiChu" style="color: #ff0000" class="form-control" placeholder="Ghi chú :">
+                                <span asp-validation-for="ghiChu" class="text-danger"></span>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-holder w-100">
+                                <input type="text" asp-for="solau" style="color: #ff0000" class="form-control" placeholder="Số tầng :">
+                                <span asp-validation-for="solau" class="text-danger"></span>
+                            </div>
+                        </div>
+
+                        <a class="forward">
+                            Tiếp theo
+                            <i class="zmdi zmdi-long-arrow-right"></i>
+                        </a>
+                    </section>
+
+                    <!-- SECTION 2 -->
+                    <h4>Chọn địa chỉ</h4>
+                    <section>
+                        <div class="form-row">
+                            <div class="select">
+                                <div class="form-holder">
+                                    <div class="select-control">Tỉnh/TP :</div>
+                                    <select asp-for="ID_Tinh_TP" style="color: #ff0000" class="form-select" aria-label="Default select example" asp-items="ViewBag.ListTinh"></select>
+                                    <span asp-validation-for="ID_Tinh_TP" class="text-danger"></span>
+                                </div>
+
+                            </div>
+
+                            <div class="select">
+                                <div class="form-holder">
+                                    <div class="select-control">Quận/huyện :</div>
+                                    <select asp-for="ID_Quan_Huyen" style="color: #ff0000" class="form-select" aria-label="Default select example" asp-items="ViewBag.ListQuanHuyen"></select>
+                                    <span asp-validation-for="ID_Quan_Huyen" class="text-danger"></span>
+                                </div>
+                            </div>
+
+                            <div class="select">
+                                <div class="form-holder">
+                                    <div class="select-control">Tài khoản ngân hàng :</div>
+                                    <select asp-for="ID_TK_NH" style="color: #ff0000" class="form-select" aria-label="Default select example" asp-items="ViewBag.ListTKNH"></select>
+                                    <span asp-validation-for="ID_TK_NH" class="text-danger"></span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <button type="submit" class="forward">
+                            Tiếp theo
+                            <i class="zmdi zmdi-long-arrow-right"></i>
+                        </button>
+                    </section>
+                </div>
+            </form>
+
+        </div>
+    </div>
+
+    <!-- Template created and distributed by Colorlib -->
+
+
+

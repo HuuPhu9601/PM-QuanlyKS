@@ -1,0 +1,104 @@
+﻿@addTagHelper *,Microsoft.AspNetCore.Mvc.TagHelpers
+@model List<Project_DATN.Services.Models.CosoRequest>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<main>
+    <div class="container-fluid">
+        <h1 class="mt-4">Danh Sách Cơ sở</h1>
+        <ol class="breadcrumb mb-4">
+            <li class="breadcrumb-item"><a href="index.html">Dashboard</a></li>
+            <li class="breadcrumb-item active">Danh Sách</li>
+        </ol>
+        <div class="card-header">
+            <form asp-action="CreateCoso" asp-controller="Coso" method="get">
+                <input class="btn btn-primary" type="submit" value="Thêm" />
+            </form>
+        </div>
+        
+        <div class="card mb-4">
+            <div class="card-header">
+                <i class="fas fa-table mr-1"></i>
+                Danh sách Cơ sở
+            </div>
+
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                        <thead>
+                            <tr>
+                                <th>Tên cơ sở</th>
+                                <th>Chủ sở hữu</th>
+                                <th>Mã số thuế</th>
+                                <th>Số điện thoại</th>
+                                <th>Email</th>
+                                <th>Số tầng</th>
+                                <th>Tỉnh/TP</th>
+                                <th>Quận/Huyện</th>
+                                <th>TKNH</th>
+                                <th>Ghi chú</th>
+                                <th>Trang thái</th>
+                            </tr>
+                        </thead>
+                        <tfoot>
+                            <tr>
+                                <th>Tên cơ sở</th>
+                                <th>Chủ sở hữu</th>
+                                <th>Mã số thuế</th>
+                                <th>Số điện thoại</th>
+                                <th>Email</th>
+                                <th>Số tầng</th>
+                                <th>Tỉnh/TP</th>
+                                <th>Quận/Huyện</th>
+                                <th>TKNH</th>
+                                <th>Ghi chú</th>
+                                <th>Trang thái</th>
+                            </tr>
+                        </tfoot>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td>@item.tenCoSo</td>
+                                    <td>@item.hoTenNguoiDaiDien</td>
+                                    <td>@item.maSoThue</td>
+                                    <td>@item.soDienThoai</td>
+                                    <td>@item.email</td>
+                                    <td>@item.Tinh_TP</td>
+                                    <td>@item.QuanHuyen</td>
+                                    <td>@item.Sotaikhoan</td>
+                                    <td>@item.solau</td>
+                                    <td>@item.ghiChu</td>
+                                    <td>@item.trangThai</td>
+                                    <td>
+                                        <form asp-action="UpdateCoso" asp-controller="Coso" asp-route-id="@item.Id" method="get">
+                                            <input type="submit" class="btn btn-success" value="Sửa" />
+                                        </form>
+                                        <form asp-action="DeleteCoso" asp-controller="Coso" asp-route-id="@item.Id" method="get">
+                                            <input type="submit" class="btn btn-danger" value="Xóa" />
+                                        </form>
+
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+<footer class="py-4 bg-light mt-auto">
+    <div class="container-fluid">
+        <div class="d-flex align-items-center justify-content-between small">
+            <div class="text-muted">Copyright &copy; Your Website 2020</div>
+            <div>
+                <a href="#">Privacy Policy</a>
+                &middot;
+                <a href="#">Terms &amp; Conditions</a>
+            </div>
+        </div>
+    </div>
+</footer>
+

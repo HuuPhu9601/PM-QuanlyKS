@@ -1,0 +1,62 @@
+﻿@model Project_DATN.Data.EF.Entities.HoaDon
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1  class="text-center">Thêm mới hoá đơn</h1>
+<hr />
+<div class="border-1 row justify-content-center align-items-center">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="ID_KhachHang" class="control-label">Số CCCD Khách</label>
+                <select asp-for="ID_KhachHang" class ="form-control" asp-items="ViewBag.KhachHang"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="ID_TaiKhoan" class="control-label">Người Lập Hoá Đơn</label>
+                <select asp-for="ID_TaiKhoan" class ="form-control" asp-items="ViewBag.TaiKhoan"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="ID_GiaoDich" class="control-label">Hình Thức Thanh Toán</label>
+                <select asp-for="ID_GiaoDich" class ="form-control" asp-items="ViewBag.GiaoDich"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="ID_LoaiPhong" class="control-label">Loại Phòng</label>
+                <select asp-for="ID_LoaiPhong" class ="form-control" asp-items="ViewBag.LoaiPhong"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="ID_Phong" class="control-label">Phòng</label>
+                <select asp-for="ID_Phong" class ="form-control" asp-items="ViewBag.Phong"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="ID_GiaoCa" class="control-label">Ca Làm</label>
+                <select asp-for="ID_GiaoCa" class ="form-control" asp-items="ViewBag.GiaoCa"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="maHoaDon" class="control-label">Mã Hoá Đơn</label>
+                <input asp-for="maHoaDon" class="form-control" />
+                <span asp-validation-for="maHoaDon" class="text-danger"></span>
+            </div>
+           
+            <div class="form-group">
+                <label asp-for="cocTien" class="control-label">Cọc Tiền</label>
+                <input asp-for="cocTien" class="form-control" />
+                <span asp-validation-for="cocTien" class="text-danger"></span>
+            </div>
+            <div class="form-group justify-content-center  align-items-center">
+                <input type="submit" value="Create" class="btn btn-primary  align-items-center" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

@@ -1,0 +1,44 @@
+﻿@using Project_DATN.Data.EF.Entities.Enums
+@model Project_DATN.Data.EF.Entities.QuyenHan
+
+@{
+    ViewData["Title"] = "Sửa thông tin quyền hạn";
+}
+
+<h1 class="text-primary text-center display-6">Sửa thông tin quyền hạn</h1>
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="ID" />
+            <div class="form-group">
+                <label asp-for="tenQuyenHan" class="control-label"></label>
+                <input asp-for="tenQuyenHan" class="form-control" />
+                <span asp-validation-for="tenQuyenHan" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="moTa" class="form-label"></label>
+                <input asp-for="moTa" class="form-control" />
+                <span asp-validation-for="moTa" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="trangThai" class="form-label"></label>
+                <select asp-for="trangThai" asp-items="@Html.GetEnumSelectList<TrangThai>()" class="form-select" ></select>
+                <span asp-validation-for="trangThai" class="text-danger"></span>
+            </div>
+         <div class="form-group">
+                <input type="submit" value="Cập nhật" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Quay lại danh sách</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

@@ -1,0 +1,163 @@
+﻿@using Project_DATN.Data.EF.Entities.Enums
+@model IEnumerable<Project_DATN.Data.EF.Entities.TaiKhoan>
+
+@{
+    ViewData["Title"] = "Index";
+}
+<h1 class="text-primary text-center display-6">Index</h1>
+<link href="~/css/StyleTaiKhoan.css" rel="stylesheet" />
+<p>
+    <a asp-action="Create" class="btn btn-primary">Thêm tài khoản mới</a>
+</p>
+<div class="table-responsive">
+    <table class="table table-bordered border-light align-middle">
+        <thead class="bg-primary text-white text-center align-middle">
+            <tr>
+                <th class="sticky-col">
+                    @Html.DisplayNameFor(model => model.anhDaiDien)
+                </th>
+                <th class="sticky-col">
+                    @Html.DisplayNameFor(model => model.hoTenChuTK)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.gioiTinh)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.email)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.tenTaiKhoan)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.matKhau)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.ngayThangNamSinh)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.soDienThoai)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.CCCD)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.diaChi)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.CoSo)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.PhongBan)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.ngayVaoLam)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.ngayKetThucHopDong)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.TrangThai)
+                </th>
+
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody class="align-middle text-center bg-white text-dark">
+            @foreach (var item in Model)
+            {
+            <tr>
+                <td class="sticky-col">
+                    @{
+                        if (item.anhDaiDien == null)
+                        {
+                            if (item.gioiTinh == GioiTinh.Male)
+                            {
+                                <img src="@("/images/default/male.jpg"  + "?t= " + DateTime.Now)" width="75" height="75" alt="Avatar" class="avatar-img" />
+                            }
+                            else
+                            {
+                                <img src="@("/images/default/female.jpg"  + "?t= " + DateTime.Now)" width="75" height="75" alt="Avatar" class="avatar-img" />
+                            }
+                        }
+                        else
+                        {
+                            <img src="@("/images/" + item.anhDaiDien + "?t= " + DateTime.Now)" width="75" height="75" alt="Avatar" class="avatar-img" />
+                        }
+                    }
+                </td>
+                <td class="sticky-col">
+                    @Html.DisplayFor(modelItem => item.hoTenChuTK)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.gioiTinh)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.email)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.tenTaiKhoan)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.matKhau)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ngayThangNamSinh)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.soDienThoai)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CCCD)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.diaChi)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CoSo.tenCoSo)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PhongBan.tenPhongBan)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ngayVaoLam)
+                </td>
+                <td>
+                    @{
+                        if (item.ngayKetThucHopDong == null)
+                        {
+                                        <span class="text-center text-muted fst-italic">N/A</span>
+                        }
+                    else
+                    {
+                        @Html.DisplayFor(modelItem => item.ngayKetThucHopDong)
+                    }
+                    }
+                    </td>
+                    <td>
+                        @{
+                            if (item.TrangThai == TrangThai.HoatDong)
+                            {
+                                <span class="badge rounded-pill bg-success"> @Html.DisplayFor(modelItem => item.TrangThai)</span>
+                            }
+                            else
+                            {
+                                <span class="badge rounded-pill bg-danger">
+                                    @Html.DisplayFor(modelItem => item.TrangThai)
+                                </span>
+                            }
+                        }
+
+                    </td>
+
+                    <td>
+                        <div class="btn-group" role="group">
+                            <a asp-action="Edit" asp-route-id="@item.ID" class="btn btn-sm btn-outline-primary">Sửa</a>
+                            <a asp-action="Delete" asp-route-id="@item.ID" class="btn btn-sm btn-outline-danger">Xóa</a>
+                        </div>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+</div>

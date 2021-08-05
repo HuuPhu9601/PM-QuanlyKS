@@ -1,0 +1,105 @@
+﻿@using Project_DATN.Data.EF.Entities.Enums
+@model Project_DATN.Data.EF.Entities.TaiKhoan
+<div class="card">
+    <div class="card-body">
+        <div class="row justify-content-center">
+            <div class="col">
+                <div class="form-floating mb-3">
+                    <select asp-for="ID_CoSo" class="form-select" asp-items="ViewBag.ID_CoSo">
+                    </select>
+                    <label asp-for="CoSo"></label>
+                    <span asp-validation-for="ID_CoSo"></span>
+                </div>
+                <div class="form-floating mb-3">
+                    <input asp-for="tenTaiKhoan" class="form-control" placeholder="Username" />
+                    <label asp-for="tenTaiKhoan"></label>
+                    <span asp-validation-for="tenTaiKhoan" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="col">
+                <div class="form-floating mb-3">
+                    <select asp-for="ID_PhongBan" class="form-select" asp-items="ViewBag.ID_PhongBan">
+                    </select>
+                    <label asp-for="PhongBan"></label>
+                    <span asp-validation-for="ID_PhongBan"></span>
+                </div>
+                <div class="form-floating mb-3">
+                    <input asp-for="matKhau" class="form-control" type="password" placeholder="Password" />
+                    <label asp-for="matKhau"></label>
+                    <span asp-validation-for="matKhau" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="col-12">
+                <div class="form-floating mb-3">
+                    <input asp-for="hoTenChuTK" class="form-control" placeholder="Fullname" />
+                    <label asp-for="hoTenChuTK"></label>
+                    <span asp-validation-for="hoTenChuTK" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="col-12">
+                <div class="form-floating mb-3">
+                    <input asp-for="email" class="form-control" placeholder="Email" />
+                    <label asp-for="email"></label>
+                    <span asp-validation-for="email" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="col">
+                <div class="form-floating mb-3">
+                    <input asp-for="ngayThangNamSinh" class="form-control" placeholder="NgaySinh" />
+                    <label asp-for="ngayThangNamSinh"></label>
+                    <span asp-validation-for="ngayThangNamSinh" class="text-danger"></span>
+                </div>
+                <div class="form-floating mb-3">
+                    <input asp-for="soDienThoai" class="form-control" placeholder="Số điện thoại" />
+                    <label asp-for="soDienThoai"></label>
+                    <span asp-validation-for="soDienThoai" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="col">
+                <div class="form-floating mb-3">
+                    <select asp-for="gioiTinh" asp-items="@Html.GetEnumSelectList<GioiTinh>()" class="form-select"></select>
+                    <label asp-for="gioiTinh"></label>
+                    <span asp-validation-for="gioiTinh" class="text-danger"></span>
+                </div>
+                <div class="form-floating mb-3">
+                    <input asp-for="CCCD" class="form-control" placeholder="CCCD" />
+                    <label asp-for="CCCD"></label>
+                    <span asp-validation-for="CCCD" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="col-12">
+                <div class="form-floating mb-3">
+                    <input asp-for="diaChi" class="form-control" placeholder="Địa chỉ" />
+                    <label asp-for="diaChi"></label>
+                    <span asp-validation-for="diaChi" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="col">
+                <div class="form-floating mb-3">
+                    <input asp-for="ngayVaoLam" class="form-control" />
+                    <label asp-for="ngayVaoLam"></label>
+                    <span asp-validation-for="ngayVaoLam" class="text-danger"></span>
+                </div>
+                <div class="form-floating mb-3">
+                    <select asp-for="TrangThai" class="form-select" asp-items="@Html.GetEnumSelectList<TrangThai>()"></select>
+                    <label asp-for="TrangThai"></label>
+                    <span asp-validation-for="TrangThai" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="col">
+                <div class="form-floating mb-3">
+                    <input asp-for="ngayKetThucHopDong" class="form-control" />
+                    <label asp-for="ngayKetThucHopDong"></label>
+                    <span asp-validation-for="ngayKetThucHopDong" class="text-danger"></span>
+                </div>
+
+                <div class="form-floating mb-3">
+                    <input asp-for="AvatarFile" class="form-control form-control-lg" accept="image/*" />
+                    <label asp-for="AvatarFile"></label>
+                    <span asp-validation-for="AvatarFile" class="text-danger"></span>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>

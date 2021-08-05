@@ -1,0 +1,52 @@
+﻿@model IEnumerable<Project_DATN.Data.EF.Entities.QuyenHan>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Thêm quyền hạn mới</a>
+</p>
+<div class="table-responsive">
+    <table class="table table-sm table-bordered align-middle">
+        <thead class="table-warning align-middle text-center">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.tenQuyenHan)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.moTa)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.trangThai)
+            </th>
+            <th>Action</th>
+        </tr>
+        </thead>
+        <tbody class="align-middle text-center">
+        @foreach (var item in Model) {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.tenQuyenHan)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.moTa)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.trangThai)
+                </td>
+       
+                <td>
+                    <div class="btn-group" role="group">
+                        <a asp-action="Edit" asp-route-id="@item.ID" class="btn btn-outline-primary btn-sm">Sửa</a>
+                        <a asp-action="Delete" asp-route-id="@item.ID" class="btn btn-outline-danger btn-sm">Xóa</a>
+                    </div>
+                </td>
+            </tr>
+        }
+        </tbody>
+    </table>
+
+</div>

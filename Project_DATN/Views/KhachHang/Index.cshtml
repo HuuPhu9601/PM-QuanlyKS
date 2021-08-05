@@ -1,0 +1,62 @@
+﻿@model IEnumerable<Project_DATN.Data.EF.Entities.KhachHang>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Shared/_LayoutDashboard.cshtml";
+}
+
+<h1 class="text-center">Danh sách khách hàng</h1>
+<p>
+    <a asp-action="Create">Thêm Mới Khách Hàng</a>
+    <a asp-action="ImportCustomer">Thêm Danh Sách Khách Hàng</a>
+</p>
+<table class="table table-bordered">
+    <thead class="thead-dark">
+        <tr>
+            <th>Mã Khách Hàng</th>
+            <th>Họ Và Tên</th>
+            <th>Email</th>
+            <th>Giới Tính</th>
+            <th>SĐT</th>
+            <th>CMND/CCCD/Passport</th>
+            <th>Địa Chỉ</th>
+            <th>Quốc Tịch</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.maKH)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.hoTenKH)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.email)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.gioiTinh)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.soDienThoai)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CCCD)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.diaChi)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.quocTich)
+                </td>
+                <td>
+                    <a type="button" class="btn btn-info"  asp-action="Edit" asp-route-id="@item.ID">Edit</a>
+                    <a type="button" class="btn btn-danger" asp-action="Delete" asp-route-id="@item.ID">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

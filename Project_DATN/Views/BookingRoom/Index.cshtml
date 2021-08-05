@@ -1,0 +1,80 @@
+﻿@model Project_DATN.Data.EF.Entities.HoaDon
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var phong = ViewBag.Phong;
+}
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+
+</head>
+<body>
+    <link rel="stylesheet" href="~/lib/font-awesome/css/fontawesome.css" />
+    <link rel="stylesheet" href="~/lib/Font-Awesome/css/regular.min.css">
+    <link rel="stylesheet" href="~/lib/Font-Awesome/css/solid.min.css">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous" />
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+            <div>
+                @foreach (var item in ViewBag.Tang)
+                {
+                   <table>
+                            <thead>
+                                <tr>
+                                    <th>
+                                        @item.tenLau
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        @foreach (var itemP in phong)
+                                        {
+                                            if (item.tenLau == itemP.Lau.tenLau)
+                                            {
+                                                <div class="btn-group dropend">
+                                                    <button class="btn btn-success dropright" value="@itemP.trangThai" data-bs-toggle="dropdown" aria-expanded="false">
+                                                        @itemP.tenPhong (@itemP.trangThai)
+                                                    </button>
+                                                    <ul class="dropdown-menu">
+                                                        @if (itemP.trangThai == "Trống")
+                                                        {
+                                                            <li>
+                                                                <a asp-route-IdPhong="@itemP.ID" asp-action="CheckIn" asp-controller="BookingRoom" class="dropdown-item btn btn-primary fas fa-plus">Nhận Phòng</a>
+                                                            </li>
+
+                                                            <li>
+                                                                <a asp-action="Create" asp-controller="ChiTietHoaDon" class="dropdown-item btn btn-primary fas fa-plus disabled">Thêm Dịch Vụ</a>
+                                                            </li>
+                                                            <li><a class="dropdown-item btn btn-primary fas fa-plus">Dọn Phòng</a></li>
+                                                        }
+                                                        else
+                                                        {
+                                                            <li>
+                                                                <a asp-route-IdPhong="@itemP.ID" asp-action="AddDichVu" asp-controller="BookingRoom" class="dropdown-item btn btn-primary fas fa-plus">Thêm Dịch Vụ</a>
+                                                            </li>
+                                                            <li>
+                                                                <a asp-route-IdPhong="@itemP.ID" asp-action="ChuyenPhong" asp-controller="BookingRoom" class="dropdown-item btn btn-primary fas fa-plus">Chuyển Phòng</a>
+                                                            </li>
+                                                            <li>
+                                                                <a asp-route-IdPhong="@itemP.ID" asp-action="CheckOut" asp-controller="BookingRoom" class="dropdown-item btn btn-primary fas fa-plus">Trả Phòng</a>
+                                                            </li>
+                                                            <li><a class="dropdown-item btn btn-primary fas fa-plus disabled">Dọn Phòng</a></li>
+                                                        }
+
+                                                    </ul>
+                                                </div>
+                                            }
+                                        }
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                }
+            </div>
+</body>
+</html>

@@ -1,0 +1,61 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+@model IEnumerable<Project_DATN.Data.EF.Entities.Phong>
+    <link href="~/css/homepage.css" rel="stylesheet" />
+<div class="homepage">
+    <div class="hotel-intro">
+        <div class="row row-cols-1 row-cols-sm-1 row-cols-md-2">
+            <div class="col d-flex justify-content-center align-items-center">
+                <div class="hero-text">
+                    <h1 class="display-6">
+                        UltraPrime Luxury Hotel
+                    </h1>
+                    <p>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                    </p>
+                </div>
+            
+            </div>
+            <div class="col my-5 py-5 ">
+                <div class="form-content">
+                    <form action="#fpt-up" class="booking-form ">
+                        <h2 class="text-capitalize"> Đặt phòng nhanh</h2>
+                        <label>Check In: </label>
+                        <input type="datetime-local" class="form-control form-control-lg" placeholder="Chọn ngày vào ...."/>
+                        <label>Check Out: </label>
+                        <input type="datetime-local" class="form-control form-control-lg" placeholder="Chọn giờ ra ...."/>
+                        <label>Số người: </label>
+                        <input type="number" class="form-control form-control-lg"/>
+                        <label>Số phòng: </label>
+                        <input type="number" class="form-control form-control-lg"/>
+                        <input type="submit" class="btn btn-lg btn-outline-warning rounded mt-3" value="Tìm phòng"/>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="hotel-content pt-5">
+        <div class="row row-cols-1 row-cols-sm-1 row-cols-md-2">
+            <div class="col text-center d-flex justify-content-center align-items-center">
+                <div class="about-text">
+                    <small class="text-danger">Giới thiệu về FPT.UP</small>
+                    <p class="text-wrap">
+                        Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur
+                    </p>
+                    <a class="nav-link text-uppercase" href="#">Tìm hiểu thêm</a>
+                </div>
+            </div>
+            <div class="col">
+                <div class="row">
+                    <div class=" col-sm-6">
+                        <img src="https://preview.colorlib.com/theme/sona/img/about/xabout-1.jpg.pagespeed.ic.Bd-M-rG6ki.webp"  alt="hotel image"/>
+                    </div>
+                    <div class="col-sm-6">
+                        <img src="https://preview.colorlib.com/theme/sona/img/about/xabout-2.jpg.pagespeed.ic.jFCH95Md9r.webp"  alt="hotel image"/>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

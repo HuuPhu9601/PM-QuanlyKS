@@ -1,0 +1,133 @@
+﻿@model Project_DATN.Data.EF.Entities.GiaoCa
+
+@{
+    ViewData["Title"] = "UpdateGC";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<link href="~/css/StyleLong2.css" rel="stylesheet" />
+<script type="text/javascript">
+    function tinhtien() {
+
+        var TienDau = document.getElementById("TienDau").value;
+        var TienThu = document.getElementById("TienThu").value;
+
+        var total = TienThu - TienDau;
+
+        var am = document.getElementById("Amount");
+        am.innerHTML = "Số tiền thu được trong ca = " + total;
+
+    }
+
+
+</script>
+
+<div class=" bg-gra-02 p-t-130 p-b-100 font-poppins">
+    <div class="wrapper wrapper--w680">
+        <div class="card card-4">
+            <div class="card-body">
+                <h2 class="title">Cập nhập ca</h2>
+                <form asp-action="UpdateGC">
+                    <div class="row row-space">
+                        <div class="form-group">
+                            <label>Thời gian cập nhật : @ViewBag.Time</label>
+
+                            <br />
+                            <label>Chọn ca làm </label>
+                            <select asp-for="caLam" class="form-control">
+                                <option class="form-control">
+                                    Ca sáng
+                                </option>
+                                <option class="form-control">
+                                    Ca chiều
+                                </option>
+                                <option class="form-control">
+                                    Ca tối
+                                </option>
+                            </select>
+
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="ID_TaiKhoan" class="control-label">Tài khoản</label>
+
+                            <select asp-for="ID_TaiKhoan" class="form-control" asp-items=" ViewBag.TaiKhoan "></select>
+                        </div>
+
+                        <div class="col-2">
+                            <div class="form-group">
+                                <label asp-for="tongTienDauCa" class="control-label">Cọc Tiền</label>
+                                <input asp-for="tongTienDauCa" readonly="true" id="TienDau" class="form-control" />
+                                <span asp-validation-for="tongTienDauCa" id="TienDau" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="col-2">
+                            <div class="form-group">
+                                <label asp-for="tongTienChenh" class="control-label">Tiều cuối ca</label>
+                                <input asp-for="tongTienChenh" id="TienThu" class="form-control" />
+                                <span asp-validation-for="tongTienChenh" value="TienThu" id="TienThu" class="text-danger"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="soLuongHoaDon" class="control-label"></label>
+                        <input asp-for="soLuongHoaDon" class="form-control" />
+                        <span asp-validation-for="soLuongHoaDon" class="text-danger"></span>
+                    </div>
+
+
+
+                    <div class="form-group">
+                        <label asp-for="ghiChu" class="control-label"></label>
+                        <input asp-for="ghiChu" class="form-control" />
+                        <span asp-validation-for="ghiChu" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="thoiDiemGiaoCa" class="control-label"></label>
+                        <input asp-for="thoiDiemGiaoCa"  value=" @ViewBag.Time " class="form-control" />
+                        <span asp-validation-for="thoiDiemGiaoCa"  class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label>Trạng thái</label>
+                        <select asp-for="trangThai" class="form-control">
+                            <option class="form-control">
+                                Hoạt động
+                            </option>
+                            <option class="form-control">
+                                Đã giao ca
+                            </option>
+                        </select>
+
+                    </div>
+                    <div class="from-group">
+
+                        <label id="Amount">Tổng tiền thu được trong ca = :  </label>
+
+                    </div>
+
+
+
+                    <div class="p-t-15">
+
+                        <input class="btn btn--radius-2 btn--blue" type="button" value="Tính số tiền thu trong ca" onclick="tinhtien()">
+
+                    </div>
+
+                    <div class="p-t-15">
+
+                        <input class="btn btn--radius-2 btn--blue" type="submit" value="Lưu" />
+                    </div>
+                    <div class="p-t-15">
+
+                        <input asp-action="Export" class="btn btn--radius-2 btn--blue" type="submit" value="Print" />
+
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

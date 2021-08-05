@@ -1,0 +1,95 @@
+﻿@model Project_DATN.Data.EF.Entities.DichVu
+
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<link href="~/css/StyleLong2.css" rel="stylesheet" />
+
+
+
+    <div class="wrapper wrapper--w680">
+        <div class="card card-4">
+            <div class="card-body">
+                <h2 class="title">Cập nhập dịch vụ</h2>
+                <form method="post">
+                    <div class="row row-space">
+                        <div class="form-group">
+                            <label asp-for="ID_LoaiDichVu" class="control-label">Loại dịch vụ</label>
+
+                            <select asp-for="ID_LoaiDichVu" class="form-control" asp-items=" ViewBag.LoaiDichVu"></select>
+                        </div>
+
+                        <div class="col-2">
+                            <div class="form-group">
+                                <label asp-for="tenDichVu" class="control-label">Tên dịch vụ</label>
+                                <input asp-for="tenDichVu" class="form-control" />
+                                <span asp-validation-for="tenDichVu" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="col-2">
+                            <div class="form-group">
+                                <label asp-for="donViTinh" class="control-label">Đơn vị tính</label>
+                                <input asp-for="donViTinh" class="form-control" />
+                                <span asp-validation-for="donViTinh" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="col-2">
+                            <div class="form-group">
+                                <label asp-for="donGia" class="control-label">Đơn giá</label>
+                                <input asp-for="donGia" class="form-control" />
+                                <span asp-validation-for="donGia" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="col-2">
+                            <div class="form-group">
+                                <label asp-for="donViTien" class="control-label">Đơn vị tiền </label>
+                                <input asp-for="donViTien" class="form-control" />
+                                <span asp-validation-for="donViTien" class="text-danger"></span>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+
+                    <div class="form-group">
+                        <label asp-for="moTa" class="control-label"></label>
+                        <input asp-for="moTa" class="form-control" />
+                        <span asp-validation-for="moTa" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label>Trạng thái</label>
+                        <select asp-for="trangThai" class="form-control">
+                            <option class="form-control">
+                                Hoạt động
+                            </option>
+                            <option class="form-control">
+                                Không hoạt động
+                            </option>
+                        </select>
+
+                    </div>
+
+
+
+
+
+
+                    <div class="p-t-15">
+
+                        <input class="btn btn--radius-2 btn--blue" type="submit" value="Lưu" />
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

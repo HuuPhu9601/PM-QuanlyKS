@@ -1,0 +1,135 @@
+﻿@model IEnumerable<Project_DATN.Data.EF.Entities.HoaDon>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Shared/_LayoutDashboard.cshtml";
+}
+
+<h1 class="text-center">Danh sách hoá đơn</h1>
+<hr />
+<div class="align-content-center">
+    <form class="input-group w-50 float-right" asp-action="SearchByDate" method="get">
+        <label>To: </label> <input type="date" class="form-control" placeholder="Search for" name="to" />
+        <label>From: </label> <input type="date" class="form-control" placeholder="Search for" name="from" />
+        <div class="input-group-append">
+            <button class="btn btn-success" type="submit">Search</button>
+        </div>
+    </form>
+</div>
+<table class="table table-bordered">
+    <thead class="thead-dark">
+        <tr>
+        </tr>
+        <tr>
+            <th>Mã Hoá Đơn</th>
+            <th>Họ Tên Khách</th>
+            <th>Người Lập</th>
+            <th>Hình Thức Thanh Toán</th>
+            <th>Phòng</th>
+            <th>Ca Làm</th>
+            <th>Loại Phòng</th>
+            <th>Ngày Lập HĐ</th>
+            <th>Nhận Phòng</th>
+            <th>Trả Phòng</th>
+            <th>Thời Gian Ở</th>
+            <th>Tiền Khách Trả</th>
+            <th>Trả Lại</th>
+            <th>Giảm Trừ</th>
+            <th>Cọc Tiền</th>
+            <th>Phụ Thu</th>
+            <th>VAT</th>
+            <th>Chiết Khấu</th>
+            <th>Giảm Giá</th>
+            <th>Trạng Thái</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.maHoaDon)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.KhachHang.hoTenKH)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TaiKhoan.hoTenChuTK)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.GiaoDich.loaiHinhThucThanhToan)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Phong.tenPhong)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.GiaoCa.caLam)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.LoaiPhong.tenLoaiPhong)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.ngayGioLap)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ngayGioNhanPhong)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ngayGioTraPhong)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.thoiGianThue)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.tienKhachDua)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.tienTraLai)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.giamTru)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.cocTien)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.phuThu)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.thueVAT)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.chietKhau)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.giamGia)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.trangThai)
+                </td>
+                <td>
+                    @*<a type="button" class="btn btn-info" asp-action="Edit" asp-route-id="@item.ID">Edit</a>*@
+                    <a type="button" class="btn btn-danger" asp-action="Delete" asp-route-id="@item.ID">Delete</a>
+                    <a type="button" class="btn btn-danger" asp-action="QrCode" asp-route-id="@item.ID">Tạo Mã QR</a>
+                </td>
+            </tr>
+
+        }
+        <tr>
+            <td colspan="5"></td>
+            <td colspan="11">
+                @{ int pages = ViewBag.Pages; int p = ViewBag.Page;}
+                <form asp-action="Index" method="get">
+                    <input type="submit" value="Go to" /> page <input type="number" max="@pages" min="1" name="page" value="@p" /> of @pages
+                </form>
+                <strong>Tổng số: @Model.Count()</strong>
+            </td>
+            <td colspan="5"></td>
+        </tr>
+    </tbody>
+</table>
+<form method="post" asp-controller="HoaDon" asp-action="Export">
+    <input type="submit" value="Export" />
+</form>

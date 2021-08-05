@@ -1,0 +1,67 @@
+﻿@using Project_DATN.Data.EF.Entities.Enums
+@model Project_DATN.Data.EF.Entities.ChucVu
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Create</h1>
+
+<h4>ChucVu</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="TaiKhoan" class="form-label"></label>
+                <select asp-for="ID_TaiKhoan" class="form-select" asp-items="ViewBag.ID_TaiKhoan">
+                </select>
+                <span asp-validation-for="ID_TaiKhoan"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PhongBan" class="form-label"></label>
+                <select asp-for="ID_PhongBan" class="form-select" asp-items="ViewBag.ID_PhongBan">
+                </select>
+                <span asp-validation-for="ID_PhongBan"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="tenChucVu" class="control-label"></label>
+                <input asp-for="tenChucVu" class="form-control" />
+                <span asp-validation-for="tenChucVu" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ngayBatDauApDung" class="control-label"></label>
+                <input asp-for="ngayBatDauApDung" class="form-control" />
+                <span asp-validation-for="ngayBatDauApDung" class="text-danger"></span>
+            </div>
+            @*<div class="form-group">
+                    <label asp-for="denNgay" class="control-label"></label>
+                    <input asp-for="denNgay" class="form-control" />
+                    <span asp-validation-for="denNgay" class="text-danger"></span>
+                </div>*@
+            <div class="form-group">
+                <label asp-for="ghiChu" class="control-label"></label>
+                <input asp-for="ghiChu" class="form-control" />
+                <span asp-validation-for="ghiChu" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="trangThai" class="form-label"></label>
+                <select asp-for="trangThai" class="form-control" asp-items="@Html.GetEnumSelectList<TrangThai>()"></select>
+                <span asp-validation-for="trangThai" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Trở về</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

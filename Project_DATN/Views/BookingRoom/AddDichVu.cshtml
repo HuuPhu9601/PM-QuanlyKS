@@ -1,0 +1,37 @@
+﻿@model Project_DATN.Data.EF.Entities.ChiTiet_HoaDon
+
+@{
+    ViewData["Title"] = "AddDichVu";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var DichVu = ViewBag.CTHD;
+}
+
+<h1>AddDichVu</h1>
+
+<h4>ChiTiet_HoaDon</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="AddDichVu">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="ID" />
+            <div class="form-group">
+                <label asp-for="ID_DichVu" class="control-label">Dịch Vụ</label>
+                <select asp-for="ID_DichVu" class="form-control" asp-items="ViewBag.DichVu"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="soLuongDichVu" class="control-label"></label>
+                <input asp-for="soLuongDichVu" class="form-control" />
+                <span asp-validation-for="soLuongDichVu" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="hidden" asp-for="ID_HoaDon" />
+                <input type="submit" asp-for="ID_HoaDon" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+

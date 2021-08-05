@@ -1,0 +1,102 @@
+﻿@model Project_DATN.Data.EF.Entities.HoaDon
+@using Project_DATN.Data.EF.Entities.Enums
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Nhận Phòng</title>
+</head>
+<body>
+    <div class="align-content-center">
+        <h1 class="text-center text-success">Phòng @ViewBag.TenPhong</h1>
+    </div>
+    <form asp-action="CheckIn">
+        <h4 class="align-content-center">Khách Hàng</h4>
+        <input type="hidden" asp-for="KhachHang.ID" />
+
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label asp-for="KhachHang.hoTenKH" class="control-label">Họ Và Tên</label>
+                    <input asp-for="KhachHang.hoTenKH" class="form-control" />
+                    <span asp-validation-for="KhachHang.hoTenKH" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="KhachHang.email" class="control-label">Email</label>
+                    <input asp-for="KhachHang.email" class="form-control" />
+                    <span asp-validation-for="KhachHang.email" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="KhachHang.soDienThoai" class="control-label">SĐT</label>
+                    <input asp-for="KhachHang.soDienThoai" class="form-control" />
+                    <span asp-validation-for="KhachHang.soDienThoai" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="KhachHang.gioiTinh" class="control-label">Giới Tính</label>
+                    <select asp-for="KhachHang.gioiTinh" class="form-control" asp-items="@Html.GetEnumSelectList<GioiTinh>()">
+                    </select>
+                    @*<input asp-for="KhachHang.gioiTinh" class="form-control" />*@
+                    <span asp-validation-for="KhachHang.gioiTinh" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label asp-for="KhachHang.CCCD" class="control-label">CMND/CCCD</label>
+                    <input asp-for="KhachHang.CCCD" class="form-control" />
+                    <span asp-validation-for="KhachHang.CCCD" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="KhachHang.diaChi" class="control-label">Địa Chỉ</label>
+                    <input asp-for="KhachHang.diaChi" class="form-control" />
+                    <span asp-validation-for="KhachHang.diaChi" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="KhachHang.quocTich" class="control-label">Quốc Tịch</label>
+                    <input asp-for="KhachHang.quocTich" class="form-control" />
+                    <span asp-validation-for="KhachHang.quocTich" class="text-danger"></span>
+                </div>
+                    <div class="form-group">
+                        <label asp-for="cocTien" class="control-label">Cọc Tiền</label>
+                        <input asp-for="cocTien" class="form-control" />
+                        <span asp-validation-for="cocTien" class="text-danger"></span>
+                    </div>
+            </div>
+        </div>
+        <hr />
+        <h4 class="align-content-center">Hoá Đơn</h4>
+        <div class="row">
+            <div class="col-12">
+                <div class="form-group">
+                    <label asp-for="ID_TaiKhoan" class="control-label">Người Lập Hoá Đơn</label>
+                    <select asp-for="ID_TaiKhoan" class="form-control" asp-items="ViewBag.TaiKhoan"></select>
+                </div>
+                <div class="form-group">
+                    <label asp-for="ID_GiaoCa" class="control-label">Ca Làm</label>
+                    <select asp-for="ID_GiaoCa" class="form-control" asp-items="ViewBag.GiaoCa"></select>
+                </div>
+                <div class="form-group">
+                    <label asp-for="fields1" class="control-label">Hình Thức Thuê</label>
+                    <select asp-for="fields1" class="form-control">
+                        <option value="@ViewBag.GiaPhong.donGiaTheoGio">Thuê Theo Giờ</option>
+                        <option value="@ViewBag.GiaPhong.donGiaTheoNgay">Thuê Theo Ngày</option>
+                        <option value="@ViewBag.GiaPhong.donGiaQuaDem">Qua Đêm</option>
+                    </select>
+                </div>
+            </div>
+           
+        </div>
+        <br>
+        <div class="col form-group text-center">
+            <input type="hidden" asp-for="ID_Phong" />
+            <input type="submit" value="Nhận Phòng" asp-for="ID_Phong" class="btn btn-primary" />
+        </div>
+    </form>
+</body>
+</html>
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

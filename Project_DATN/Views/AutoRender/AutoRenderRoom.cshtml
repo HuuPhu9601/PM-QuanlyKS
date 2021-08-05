@@ -1,0 +1,87 @@
+﻿@addTagHelper *,Microsoft.AspNetCore.Mvc.TagHelpers
+@model Project_DATN.Services.Models.CosoRequest
+
+
+
+    <!-- LINEARICONS -->
+    <link rel="stylesheet" href="~/AutoRenderroot/fonts/linearicons/style.css">
+
+    <!-- MATERIAL DESIGN ICONIC FONT -->
+    <link rel="stylesheet" href="~/AutoRenderroot/fonts/material-design-iconic-font/css/material-design-iconic-font.css">
+
+    <!-- DATE-PICKER -->
+    <link rel="stylesheet" href="~/AutoRenderroot/vendor/date-picker/css/datepicker.min.css">
+
+    <!-- STYLE CSS -->
+    <link rel="stylesheet" href="~/AutoRenderroot/css/style.css">
+
+    <div class="wrapper">
+        <div class="inner">
+            <div class="image-holder">
+                <img src="~/AutoRenderroot/images/form-wizard.jpg" alt="">
+                <h3>Tạo Phòng</h3>
+            </div>
+            <form asp-action="AutoRenderRoom" method="post">
+                <div id="wizard">
+                    <!-- SECTION 3 -->
+                    <h4>Tạo Phòng</h4>
+                    <section>
+                        <div class="form-row">
+                            <div class="form-holder">
+                                <input type="text" asp-for="kyhieuphong" style="color: #ff0000" class="form-control" placeholder="Ký hiệu phòng :">
+                                <span asp-validation-for="kyhieuphong" class="text-danger"></span>
+                            </div>
+                            <div class="form-holder">
+                                @*<div class="select-control">Số phong thủy :</div>*@
+                                <input type="hidden" readonly asp-for="Id" style="color: #ff0000" class="form-control" placeholder="Chủ sở hữu :">
+                            </div>
+                        </div>
+
+                        @for (int i = 0; i < Model.solau; i++)
+                        {
+                            int t = i + 1;
+                            <div class="form-row">
+                                <div class="form-holder w-100">
+                                    <div class="select-control">Tầng @t:</div>
+                                    <input type="text" asp-for="soluongphong[i]" style="color: #ff0000" class="form-control" placeholder="Số tầng :">
+                                </div>
+                            </div>
+                        }
+
+                        <a class="forward">
+                            Tiếp theo
+                            <i class="zmdi zmdi-long-arrow-right"></i>
+                        </a>
+                    </section>
+                    <!-- SECTION 4 -->
+                    <h4>Loại phòng</h4>
+                    <section>
+                        <div class="form-row">
+                            <div class="select">
+
+                                <div class="form-holder">
+                                    <div class="select-control">Loại phòng :</div>
+                                    <select asp-for="idloaiphong" style="color: #ff0000" class="form-select" aria-label="Default select example" asp-items="ViewBag.ListLoaiPhong"></select>
+                                    <span asp-validation-for="idloaiphong" class="form-control"></span>
+                                </div>
+
+                            </div>
+                            @*<div class="form-holder">
+                                <input type="text" asp-for="trangThai" style="color: #ff0000" class="form-control" placeholder="Trạng thái :">
+                                <span asp-validation-for="trangThai" class="form-control"></span>
+                            </div>*@
+                        </div>
+
+                        <button class="forward">
+                            Xác nhận
+                            <i class="zmdi zmdi-long-arrow-right"></i>
+                        </button>
+                    </section>
+                </div>
+            </form>
+
+        </div>
+    </div>
+
+
+

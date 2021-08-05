@@ -1,0 +1,119 @@
+﻿@model IEnumerable<Project_DATN.Data.EF.Entities.GiaoCa>
+
+
+@{
+    ViewData["Title"] = "LichSuGiaoCa";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewData["Title"] = "TaoCaLam";
+
+}
+
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Table 03</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+
+    <link href="~/css/StyleLong1.css" rel="stylesheet" />
+    <link href="~/css/StyleLong2.css" rel="stylesheet" />
+    
+
+</head>
+<body>
+
+
+    <section class="ftco-section">
+        <div class="container">
+
+            <div class="row">
+                <div class="col-md-12">
+                    <h4 class="text-center mb-4">Lịch sử giao ca</h4>
+                    <div class="table-wrap">
+                        <table class="table">
+                            <thead class="thead-primary">
+
+                                <tr>
+                                    <th>
+                                        Tên tài khoản
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.caLam)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.tongTienDauCa)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.tongTienChenh)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.soLuongHoaDon)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.ghiChu)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.thoiDiemGiaoCa)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.trangThai)
+                                    </th>
+
+
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in Model)
+                                {
+                                <tr>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.TaiKhoan.hoTenChuTK)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.caLam)
+                                    </td>
+                                    <td cssClass="ClsTxtToCalculate">
+                                        @Html.DisplayFor(modelItem => item.tongTienDauCa)
+                                    </td>
+                                    <td cssClass="ClsTxtToCalculate">
+                                        @Html.DisplayFor(modelItem => item.tongTienChenh)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.soLuongHoaDon)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.ghiChu)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.thoiDiemGiaoCa)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.trangThai)
+                                    </td>
+
+                                    <td>
+                                        <a asp-controller="GiaoCa" asp-action="UpdateGC" asp-route-id="@item.ID">Edit</a>
+
+                                    </td>
+
+
+                                </tr>
+                                }
+                            </tbody>
+                        </table>
+                        <a href="@Url.Action("ExportToExcel","GiaoCa")">In execl </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="js/jquery.min.js"></script>
+    <script src="js/popper.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/main.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,50 @@
+﻿:root {
+    --light: #0d6efd;
+    --dark: #313131;
+    --white: #fff;
+}
+.table {
+    table-layout: fixed;
+    width: 100%;
+    border-radius: 20px;
+    -moz-border-radius: 20px;
+}
+    .table th, td {
+        width: 200px;
+    }
+    .table .sticky-col {
+        position: sticky;
+        left: 0px;
+    }
+    .table th.sticky-col, .table td.sticky-col {
+        background: var(--light);
+    }
+    .table td:first-child, .table td:nth-child(2) {
+        background: var(--white);
+    }   
+    .table th:nth-child(2), .table td:nth-child(2) {
+        left: 200px;
+    }
+.form .step.active {
+    display: block;
+}
+.form .step {
+    display: none;
+}
+
+
+.field-validation-error{
+    color: red;
+    font-weight: bold;
+}
+.input-validation-error{
+    background: pink;
+    border: 1px solid red;
+}
+.avatar-img {
+    border-radius: 50%;
+}
+
+.bg-seafoam {
+    background: var(--light);
+}

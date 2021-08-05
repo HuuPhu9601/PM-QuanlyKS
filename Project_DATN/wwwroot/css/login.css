@@ -1,0 +1,147 @@
+﻿
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Kumbh Sans', sans-serif;
+}
+body {
+    background: wheat;
+   height: 100%;
+}
+.container {
+    height: 100%;
+    width: 100%;
+}
+.signinform {
+    padding: 10px 10px;
+    margin: 0 auto;
+    display: grid;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="Password"] {
+    font-size: 17px;
+    font-weight: 500;
+    color: #999;
+    text-align: left;
+    padding: 14px 15px 12px 35px;
+    width: 100%;
+    display: inline-block;
+    box-sizing: border-box;
+    border: none;
+    outline: none;
+    background: transparent;
+    letter-spacing: .5px;
+}
+
+.input-group {
+    margin-bottom: 25px;
+    padding: 0px 0px;
+    border-bottom: 1px solid #e5e5e5;
+    position: relative;
+}
+
+.btn-block {
+    display: block;
+    width: 50%;
+    margin: 0 auto;
+}
+
+
+.btn-primary {
+    color: #fff;
+    margin-top: 30px;
+    outline: none;
+    width: 100%;
+    padding: 15px 15px;
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: 600;
+    border-radius: 12px;
+    -webkit-border-radius: 12px;
+    -moz-border-radius: 12px;
+    border: none;
+    text-transform: capitalize;
+}
+
+.form-row.bottom {
+    display: flex;
+    justify-content: space-between;
+}
+   
+.form-info h2 {
+    display: inline-block;
+    font-size: 25px;
+    line-height: 35px;
+    margin-bottom: 20px;
+    font-weight: 600;
+    color: #3b3663;
+}
+h1 {
+    text-align: center;
+    font-size: 40px;
+    font-weight: 500;
+    color: #3b3663;
+}
+
+.form-info {
+    box-sizing: border-box;
+    padding: 3em 3.5em;
+    width: 450px;
+    background: #fff;
+    box-shadow: 2px 9px 49px -17px rgba(0, 0, 0, 0.1);
+}
+
+
+.main-form {
+    margin: 40px 0;
+}
+a.forgot {
+    color: #3b3663;
+    margin-top: 2px;
+}
+.form-container{
+    max-width: 890px;
+    margin: 0 auto;
+}
+
+.input-group i.bx {
+    font-size: 24px;
+    vertical-align: middle;
+    box-sizing: border-box;
+    float: left;
+    width: 6%;
+    margin-top: 13px;
+    text-align: center;
+    color: #999;
+    opacity: .5;
+    position: absolute;
+    left: 0;
+}
+::-webkit-input-placeholder {
+    /* Edge */
+    color: #aaa;
+}
+::placeholder {
+    color: #aaa;
+}
+
+/** Responsive **/
+@media screen and (max-width: 800px) {
+    .form-info h2 {
+        font-size: 23px;
+    }
+
+    .main-form {
+        flex-direction: column;
+    }
+
+    .form-container {
+        max-width: 550px;
+    }
+}
+/** /Responsive **/
+
+/*-- //form styling --*/

@@ -1,0 +1,143 @@
+﻿@model IEnumerable<Project_DATN.Data.EF.Entities.HoaDon>
+
+@{
+    ViewData["Title"] = "ListHoaDon";
+}
+
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Danh sách hóa đơn</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link href="~/css/StyleLong1.css" rel="stylesheet" />
+   
+
+</head>
+<body>
+    <section class="ftco-section">
+        <div class="container">
+          
+            <div class="row">
+                <div class="col-md-12">
+                    <h4 class="text-center mb-4">Danh sách hóa đơn</h4>
+                    <div class="table-wrap">
+                        <table class="table">
+                            <thead class="thead-primary align-text-bottom">
+                                <tr>
+
+
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.ngayGioLap)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.ngayGioNhanPhong)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.ngayGioTraPhong)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.thoiGianThue)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.tienKhachDua)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.tienTraLai)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.giamTru)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.cocTien)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.phuThu)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.thueVAT)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.chietKhau)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.giamGia)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.ghiChu)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.trangThai)
+                                    </th>
+
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in Model)
+                                {
+                                    <tr>
+
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.ngayGioLap)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.ngayGioNhanPhong)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.ngayGioTraPhong)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.thoiGianThue)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.tienKhachDua)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.tienTraLai)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.giamTru)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.cocTien)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.phuThu)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.thueVAT)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.chietKhau)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.giamGia)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.ghiChu)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.trangThai)
+                                        </td>
+
+
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="js/jquery.min.js"></script>
+    <script src="js/popper.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/main.js"></script>
+
+</body>
+</html>

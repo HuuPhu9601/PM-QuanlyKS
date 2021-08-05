@@ -1,0 +1,51 @@
+﻿@model IEnumerable<Project_DATN.Data.EF.Entities.ChiTiet_HoaDon>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Shared/_LayoutDashboard.cshtml";
+}
+
+<h1>Danh sách chi tiết hoá đơn</h1>
+
+@*<p>
+    <a asp-action="Create">Create New</a>
+</p>*@
+<table class="table table-bordered">
+    <thead class="thead-dark">
+        <tr>
+            <th>Mã Hoá Đơn</th>
+            <th>Dịch Vụ</th>
+            <th>Số Lượng</th>
+            <th>Ghi Chú</th>
+            <th>Trạng Thái</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.HoaDon.maHoaDon)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DichVu.tenDichVu)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.soLuongDichVu)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ghiChu)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.trangThai)
+                </td>
+
+                <td>
+                    <a type="button" class="btn btn-info" asp-action="Edit" asp-route-id="@item.ID">Edit</a>
+                    <a type="button" class="btn btn-danger"  asp-action="Delete" asp-route-id="@item.ID">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
